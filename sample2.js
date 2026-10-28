@@ -9,8 +9,8 @@ const offButton = document.querySelector("#off-button");
 function setHeating(isOn) {
   status.classList.toggle("is-on", isOn);
   statusText.textContent = isOn
-    ? "Heizung1 ist eingeschaltet2"
-    : "Heizung1 ist ausgeschaltet2";
+    ? "Heizung ist eingeschaltet2"
+    : "Heizung ist ausgeschaltet2";
   onButton.setAttribute("aria-pressed", String(isOn));
   offButton.setAttribute("aria-pressed", String(!isOn));
 }
