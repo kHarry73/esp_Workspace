@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Temperatursteuerung1</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Segoe UI", sans-serif;
+      color: #172033;
+      background: #eef2f8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px;
+      place-items: center;
+    }
+
+    main {
+      width: min(100%, 390px);
+      padding: 28px;
+      border: 1px solid #e1e6ef;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 16px 40px rgb(23 32 51 / 10%);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .subtitle {
+      margin: 8px 0 24px;
+      color: #657087;
+    }
+
+    .temperature {
+      margin: 0 0 4px;
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -0.06em;
+    }
+
+    .temperature span {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 28px;
+      color: #657087;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #aab2c0;
+    }
+
+    .status.is-on .status-dot {
+      background: #16a36a;
+      box-shadow: 0 0 0 4px #16a36a22;
+    }
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: #4768e8;
+      cursor: pointer;
+    }
+
+    .range-limits {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+      color: #7a8497;
+      font-size: 0.85rem;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    button {
+      min-height: 46px;
+      border: 0;
+      border-radius: 10px;
+      font: inherit;
+      font-weight: 650;
+      cursor: pointer;
+    }
+
+    button:focus-visible,
+    input:focus-visible {
+      outline: 3px solid #91a5ff;
+      outline-offset: 3px;
+    }
+
+    #on-button {
+      color: #fff;
+      background: #4768e8;
+    }
+
+    #off-button {
+      color: #344057;
+      background: #edf0f5;
+    }
+
+    button[aria-pressed="true"] {
+      box-shadow: inset 0 0 0 2px #172033;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Temperatursteuerung</h1>
+    <p class="subtitle">Kleines Beispiel1 für eine Heizungssteuerung</p>
+
+    <p class="temperature"><output id="temperature-value" for="temperature">21</output><span> °C</span></p>
+    <p class="status" id="status" aria-live="polite">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span id="status-text">Heizung ist ausgeschaltet1</span>
+    </p>
+
+    <label for="temperature">
+      <span>Zieltemperatur1</span>
+      <span><output id="slider-value" for="temperature">21</output> °C</span>
+    </label>
+    <input id="temperature" type="range" min="5" max="30" value="21" step="1">
+    <div class="range-limits" aria-hidden="true"><span>5 °C</span><span>30 °C</span></div>
+
+    <div class="buttons">
+      <button id="on-button" type="button" aria-pressed="false">Ein1</button>
+      <button id="off-button" type="button" aria-pressed="true">Aus</button>
+    </div>
+  </main>
+  <script src="sample2.js"></script>
+</body>
+</html>
